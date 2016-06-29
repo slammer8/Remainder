@@ -12,6 +12,19 @@ class FirstViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        let calendar = Calendar.current()
+        
+        var components = DateComponents()
+        components.year = 1983
+        components.month = 9
+        components.day = 13
+        
+        guard let date = calendar.date(from: components) else { return }
+        
+        let lifeLeftRequest = MashapeRequest.lifeLeft(birthDate: date, gender: .male)
+        
+        NetworkController.performRequest(request: lifeLeftRequest)
     }
 
 }

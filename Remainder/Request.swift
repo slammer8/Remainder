@@ -18,20 +18,21 @@ protocol Request {
     
     var parameters: [String: AnyObject] { get }
     
+    var requestHeaders: [String: String] { get }
 }
 
 extension Request {
-    
-    var baseURL: String {
-        return "www.google.com"
-    }
     
     var method: Alamofire.Method {
         return .GET
     }
     
-    var absoluteURL: String {
-        return baseURL + path
+    var absoluteURL: URL {
+        return URL(string: baseURL + path)!
+    }
+    
+    var requestHeaders: [String: String] {
+        return [:]
     }
     
 }
