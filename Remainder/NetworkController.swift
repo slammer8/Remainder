@@ -21,11 +21,11 @@ final class NetworkController {
             }
         }
         
+        urlRequest.httpMethod = request.method.rawValue
+        
         let encoding = Alamofire.ParameterEncoding.urlEncodedInURL
         
-        var (encodedRequest, _) = encoding.encode(urlRequest, parameters: request.parameters)
-        
-        encodedRequest.httpMethod = request.method.rawValue
+        let (encodedRequest, _) = encoding.encode(urlRequest, parameters: request.parameters)
         
         Alamofire.request(encodedRequest)
             .validate()
