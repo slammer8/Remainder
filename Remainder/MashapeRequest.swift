@@ -28,10 +28,11 @@ enum MashapeRequest: Request {
         }
     }
     
-    var requestHeaders: [String: String] {
+    var headers: [String: String] {
         switch self {
         case lifeLeft:
-            return ["X-Mashape-Key": APIKeys.mashape.rawValue]
+            return ["X-Mashape-Key": APIKeys.mashape.rawValue,
+                    "Accept": "application/json"]
         }
     }
     

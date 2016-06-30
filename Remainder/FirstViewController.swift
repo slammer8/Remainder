@@ -13,6 +13,15 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        performRequest()
+        
+    }
+
+    private func performRequest() {
         let calendar = Calendar.current()
         
         var components = DateComponents()
@@ -24,7 +33,10 @@ class FirstViewController: UIViewController {
         
         let lifeLeftRequest = MashapeRequest.lifeLeft(birthDate: date, gender: .male)
         
-        NetworkController.performRequest(request: lifeLeftRequest)
-    }
+        NetworkController.performRequest(request: lifeLeftRequest) { result in
+            print("completion")
+            print(result.data)
+        }
 
+    }
 }

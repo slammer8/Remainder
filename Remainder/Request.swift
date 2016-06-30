@@ -18,7 +18,7 @@ protocol Request {
     
     var parameters: [String: AnyObject] { get }
     
-    var requestHeaders: [String: String] { get }
+    var headers: [String: String] { get }
 }
 
 extension Request {
@@ -31,7 +31,7 @@ extension Request {
         return URL(string: baseURL + path)!
     }
     
-    var requestHeaders: [String: String] {
+    var headers: [String: String] {
         return [:]
     }
     

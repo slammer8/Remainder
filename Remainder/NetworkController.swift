@@ -11,11 +11,16 @@ import Alamofire
 
 final class NetworkController {
     
-    static func performRequest(request: Request) {
-        
+    static func performRequest(request: Request, completion: (request: URLRequest?, response: HTTPURLResponse?, data: Data?, error: NSError?) -> Void) {
+    
         var urlRequest = URLRequest(url: request.absoluteURL)
-        urlRequest.setValue(APIKeys.mashape.rawValue, forHTTPHeaderField: "X-Mashape-Key")
-
+        
+        if !request.headers.isEmpty {
+            for (key, value) in request.headers {
+                urlRequest.setValue(value, forHTTPHeaderField: key)
+            }
+        }
+        
         let encoding = Alamofire.ParameterEncoding.urlEncodedInURL
         
         var (encodedRequest, _) = encoding.encode(urlRequest, parameters: request.parameters)
@@ -24,16 +29,7 @@ final class NetworkController {
         
         Alamofire.request(encodedRequest)
             .validate()
-            .responseJSON { response in
-                print(response.request)  // original URL request
-                print(response.response) // URL response
-                print(response.data)     // server data
-                print(response.result)   // result of response serialization
-                
-                if let JSON = response.result.value {
-                    print("JSON: \(JSON)")
-                }
+            .response(completionHandler: completion)
         }
-    }
 
 }
