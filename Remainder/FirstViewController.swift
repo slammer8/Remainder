@@ -12,7 +12,6 @@ class FirstViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -34,7 +33,6 @@ class FirstViewController: UIViewController {
         let lifeLeftRequest = MashapeRequest.lifeLeft(birthDate: date, gender: .male)
         
         NetworkController.performRequest(request: lifeLeftRequest) { result in
-            print("completion")
             print(result.data)
         }
 

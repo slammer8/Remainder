@@ -8,8 +8,12 @@
 
 import Foundation
 
+/// A Mashape request.
 enum MashapeRequest: Request {
     
+    private static let DateFormat = "dd MMMM yyyy"
+    
+    /// The life left request.
     case lifeLeft (birthDate: Date, gender: Gender)
     
     var baseURL: String {
@@ -20,10 +24,10 @@ enum MashapeRequest: Request {
         return "/time-left"
     }
     
-    var parameters: [String : AnyObject] {
+    var parameters: [String : NSObject] {
         switch self {
         case let lifeLeft (birthDate, gender):
-            return ["birth": birthDate.convertUsingDateFormat("dd MMMM yyyy"),
+            return ["birth": birthDate.convertUsingDateFormat(self.dynamicType.DateFormat),
                     "gender": gender.rawValue]
         }
     }

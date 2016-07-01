@@ -8,9 +8,19 @@
 
 import Alamofire
 
-
+/// Peforms a network request and returns a response.
 final class NetworkController {
     
+    /*
+     Peforms a network request the provided request
+     
+     parameters:
+     - request: the request to perform.
+     - completion: the completion block to call.
+     
+     returns: a response, if any
+     
+     */
     static func performRequest(request: Request, completion: (request: URLRequest?, response: HTTPURLResponse?, data: Data?, error: NSError?) -> Void) {
     
         var urlRequest = URLRequest(url: request.absoluteURL)
