@@ -24,7 +24,12 @@ final class LifeStatistic {
     let birthDate: Date
     let timeCreated: Date
     
-    init?(currentAge: Float, yearsLeft: Float, monthsLeft: Float, daysLeft: Float, hoursLeft: Float, secondsLeft: Float, dateString: String, lifeRemain: LifeRemain, lifeCompletePercentage: Float, gender: Gender, birthDate: Date, timeCreated: Date) {
+    init?(currentAge: Float?, yearsLeft: Float?, monthsLeft: Float?, daysLeft: Float?, hoursLeft: Float?, secondsLeft: Float?, dateString: String?, lifeRemain: LifeRemain, lifeCompletePercentage: Float, gender: Gender, birthDate: Date, timeCreated: Date) {
+        
+        guard let currentAge = currentAge, yearsLeft = yearsLeft, monthsLeft = monthsLeft, daysLeft = daysLeft, hoursLeft = hoursLeft, secondsLeft = secondsLeft, dateString = dateString else {
+            return nil
+        }
+        
         self.currentAge = currentAge
         self.yearsLeft = yearsLeft
         self.monthsLeft = monthsLeft
