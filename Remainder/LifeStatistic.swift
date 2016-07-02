@@ -15,6 +15,7 @@ final class LifeStatistic {
     let monthsLeft: Float
     let daysLeft: Float
     let hoursLeft: Float
+    let minutesLeft: Float
     let secondsLeft: Float
     let dateString: String
     let lifeRemain: LifeRemain
@@ -22,19 +23,16 @@ final class LifeStatistic {
     
     let gender: Gender
     let birthDate: Date
-    let timeCreated: Date
+    let timeUpdated: Date
     
-    init?(currentAge: Float?, yearsLeft: Float?, monthsLeft: Float?, daysLeft: Float?, hoursLeft: Float?, secondsLeft: Float?, dateString: String?, lifeRemain: LifeRemain, lifeCompletePercentage: Float, gender: Gender, birthDate: Date, timeCreated: Date) {
-        
-        guard let currentAge = currentAge, yearsLeft = yearsLeft, monthsLeft = monthsLeft, daysLeft = daysLeft, hoursLeft = hoursLeft, secondsLeft = secondsLeft, dateString = dateString else {
-            return nil
-        }
+    init(currentAge: Float, yearsLeft: Float, monthsLeft: Float, daysLeft: Float, hoursLeft: Float, minutesLeft: Float, secondsLeft: Float, dateString: String, lifeRemain: LifeRemain, lifeCompletePercentage: Float, gender: Gender, birthDate: Date, timeUpdated: Date = Date()) {
         
         self.currentAge = currentAge
         self.yearsLeft = yearsLeft
         self.monthsLeft = monthsLeft
         self.daysLeft = daysLeft
         self.hoursLeft = hoursLeft
+        self.minutesLeft = minutesLeft
         self.secondsLeft = secondsLeft
         self.dateString = dateString
         self.lifeRemain = lifeRemain
@@ -42,6 +40,10 @@ final class LifeStatistic {
         
         self.gender = gender
         self.birthDate = birthDate
-        self.timeCreated = timeCreated
+        self.timeUpdated = timeUpdated
     }
+}
+
+extension LifeStatistic: Parseable {
+    typealias ParserType = LifeStatisticParser
 }

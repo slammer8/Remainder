@@ -15,11 +15,7 @@ final class LifeRemain {
     let minutes: Int
     let seconds: Int
     
-    init?(years: Int?, months: Int?, days: Int?, hours: Int?, minutes: Int?, seconds: Int?) {
-        
-        guard let years = years, months = months, days = days, hours = hours, minutes = minutes, seconds = seconds else {
-            return nil
-        }
+    init(years: Int, months: Int, days: Int, hours: Int, minutes: Int, seconds: Int) {
         
         self.years = years
         self.months = months

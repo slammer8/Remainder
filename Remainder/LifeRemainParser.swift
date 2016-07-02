@@ -11,13 +11,13 @@ import SwiftyJSON
 
 final class LifeRemainParser {
     
-    static func parse(json: JSON) -> LifeRemain? {
-        return LifeRemain(years: json["years"].int,
-                          months: json["months"].int,
-                          days: json["days"].int,
-                          hours: json["hours"].int,
-                          minutes: json["minutes"].int,
-                          seconds: json["seconds"].int)
+    static func parse(json: JSON) -> LifeRemain {
+        return LifeRemain(years: json["years"].intValue,
+                          months: json["months"].intValue,
+                          days: json["days"].intValue,
+                          hours: json["hours"].intValue,
+                          minutes: json["minutes"].intValue,
+                          seconds: json["seconds"].intValue)
     }
     
 }
