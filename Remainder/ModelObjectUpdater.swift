@@ -7,30 +7,34 @@
 //
 
 import Foundation
+import SwiftyJSON
 
-final class ModelObjectUpdater {
+final class ModelObjectUpdater<T:Parseable> {
     
-    // declare the type of object here
-    
-    
-    func performRequest(request: Request) {
-        NetworkController.performRequest(request: request) { (request, response, data, error) in
+    func performRequest(request: Request, completion: (Result<T>) -> Void) {
+        
+        NetworkController.performRequest(request: request) { (URLRequest, response, data, error) in
             
-            // do the pass the returned object to the correct parser
-            
-            // pass the returned object back after parsing complete
+            if let error = error {
+                completion(Result.failure(error: error))
+            }
+ 
+            guard let object = T.ParserType.parse(data: data, request: request) else {
+                
+                let error = NSError(domain: "Parsing error", code: -1, userInfo: nil)
+                
+                completion(Result.failure(error: error))
+            }
+        
+            completion(Result.success(result: object))
             
         }
-        
         
     }
     
     //persister
     //updater
     
-    // perform request
-    
     // perform and update
     
-    //
 }

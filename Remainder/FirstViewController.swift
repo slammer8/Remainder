@@ -32,9 +32,17 @@ class FirstViewController: UIViewController {
         
         let lifeLeftRequest = MashapeRequest.lifeLeft(birthDate: date, gender: .male)
         
-        NetworkController.performRequest(request: lifeLeftRequest) { result in
-            print(result.data)
+        let modelObjectUpdater = ModelObjectUpdater<LifeStatistic>()
+        
+        modelObjectUpdater.performRequest(request: lifeLeftRequest) { result in
+            
+            switch result {
+            case let .success(lifeStatistic):
+                print(lifeStatistic.currentAge)
+            case .failure:
+                print("failure")
+            }
+            
         }
-
     }
 }
