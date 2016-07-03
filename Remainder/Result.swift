@@ -12,3 +12,9 @@ public enum Result<T>
     
     case failure(error: ErrorProtocol)
 }
+
+/// `ResultCompletion` creates a generic typealias to generally define completion blocks that return a `Result`
+public enum ResultCompletion<T>
+{
+    public typealias Completion = (result: Result<T>) -> Void
+}

@@ -1,0 +1,22 @@
+{
+    "data": {
+        "currentAge": 36.80011267063039,
+        "yearsLeft": 43.607894089607434,
+        "monthsLeft": 523.2947290752892,
+        "daysLeft": 15927.783316229115,
+        "hoursLeft": 382266.7995894988,
+        "minutesLeft": 22936007.975369927,
+        "secondsLeft": 1376160478.5221956,
+        "dateString": "43 years 7 months 8 days 23 hours 17 minutes 42 seconds",
+        "date": {
+            "years": 43,
+            "months": 7,
+            "days": 8,
+            "hours": 23,
+            "minutes": 17,
+            "seconds": 42
+        },
+        "lifeComplete": 0.4576672666487268
+    },
+    "success": true
+}

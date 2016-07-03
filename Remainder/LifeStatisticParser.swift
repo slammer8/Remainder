@@ -8,9 +8,9 @@
 
 import SwiftyJSON
 
-final class LifeStatisticParser {
+final class LifeStatisticParser: Parser {
     
-    static func parse(data: Data?, request: Request? = nil) -> LifeStatistic? {
+    static func parse(data: Data?, request: Request?) -> LifeStatistic? {
         
         guard let data = data, mashapeRequest = request as? MashapeRequest else {
             return nil

@@ -29,6 +29,7 @@
 		94A6F3371D272A7200E02185 /* LifeStatisticParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A6F3361D272A7200E02185 /* LifeStatisticParser.swift */; };
 		94A6F3391D28649C00E02185 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A6F3381D28649C00E02185 /* Result.swift */; };
 		94A6F33B1D286E0E00E02185 /* Parseable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A6F33A1D286E0D00E02185 /* Parseable.swift */; };
+		94A6F33E1D295D9C00E02185 /* life_left_json_response.json in Resources */ = {isa = PBXBuildFile; fileRef = 94A6F33D1D295D9C00E02185 /* life_left_json_response.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		94A6F3361D272A7200E02185 /* LifeStatisticParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LifeStatisticParser.swift; sourceTree = "<group>"; };
 		94A6F3381D28649C00E02185 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		94A6F33A1D286E0D00E02185 /* Parseable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parseable.swift; sourceTree = "<group>"; };
+		94A6F33D1D295D9C00E02185 /* life_left_json_response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = life_left_json_response.json; sourceTree = "<group>"; };
 		B8F02CCCB793B036F56F7A5C /* Pods-Remainder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Remainder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Remainder/Pods-Remainder.debug.xcconfig"; sourceTree = "<group>"; };
 		DF7FE99BEC04240B571003E5 /* Pods-Remainder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Remainder.release.xcconfig"; path = "Pods/Target Support Files/Pods-Remainder/Pods-Remainder.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -172,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				944551DF1D242E00001B31DB /* MashapeRequestTest.swift */,
+				94A6F33D1D295D9C00E02185 /* life_left_json_response.json */,
 				944551E11D242E00001B31DB /* Info.plist */,
 			);
 			path = RemainderTests;
@@ -336,6 +339,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94A6F33E1D295D9C00E02185 /* life_left_json_response.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

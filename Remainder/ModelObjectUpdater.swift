@@ -18,23 +18,15 @@ final class ModelObjectUpdater<T:Parseable> {
             if let error = error {
                 completion(Result.failure(error: error))
             }
- 
+            
             guard let object = T.ParserType.parse(data: data, request: request) else {
                 
                 let error = NSError(domain: "Parsing error", code: -1, userInfo: nil)
-                
                 completion(Result.failure(error: error))
             }
         
             completion(Result.success(result: object))
-            
         }
-        
     }
-    
-    //persister
-    //updater
-    
-    // perform and update
     
 }
