@@ -10,5 +10,5 @@
 enum APIKeys: String {
     
     /// Mashape requests.
-    case mashape = "FUj98AAmlcmshah62B9GKVDpSueRp1S4eYRjsnfROJ9xXtvh2o"
+    case mashape = ""
 }
