@@ -24,7 +24,7 @@ final class ModelObjectUpdater<T:Parseable> {
                 let error = NSError(domain: "Parsing error", code: -1, userInfo: nil)
                 completion(Result.failure(error: error))
             }
-        
+            
             completion(Result.success(result: object))
         }
     }
