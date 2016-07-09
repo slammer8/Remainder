@@ -1,5 +1,6 @@
 disabled_rules: # rule identifiers to exclude from running
   - trailing_whitespace
+  - line_length
 opt_in_rules: # some rules are only opt-in
   - missing_docs
   
