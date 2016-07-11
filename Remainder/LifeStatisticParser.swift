@@ -20,7 +20,9 @@ final class LifeStatisticParser: Parser {
             return nil
         }
         
-        let json = JSON(data: data)
+        let jsonWrapper = JSON(data: data)
+        
+        let json = jsonWrapper["data"]
         
         let currentAge = json["currentAge"].floatValue
         let yearsLeft = json["yearsLeft"].floatValue
