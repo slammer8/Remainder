@@ -13,7 +13,7 @@ final class MashapeRequestTest: XCTestCase {
     
     func testRequestBuildsCorrectly() {
 
-        let calendar = Calendar.current()
+        let calendar = Calendar.current
         
         var components = DateComponents()
         components.year = 1986
