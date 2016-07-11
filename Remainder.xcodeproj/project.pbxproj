@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		944551C91D242DFF001B31DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944551C81D242DFF001B31DB /* AppDelegate.swift */; };
-		944551CB1D242DFF001B31DB /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944551CA1D242DFF001B31DB /* FirstViewController.swift */; };
 		944551CD1D242DFF001B31DB /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944551CC1D242DFF001B31DB /* SecondViewController.swift */; };
 		944551D01D242DFF001B31DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 944551CE1D242DFF001B31DB /* Main.storyboard */; };
 		944551D21D242DFF001B31DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 944551D11D242DFF001B31DB /* Assets.xcassets */; };
 		944551D51D242DFF001B31DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 944551D31D242DFF001B31DB /* LaunchScreen.storyboard */; };
 		944551EB1D242E00001B31DB /* RemainderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944551EA1D242E00001B31DB /* RemainderUITests.swift */; };
 		9485C44A1D344170005B5EC5 /* MashapeRequestTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944551DF1D242E00001B31DB /* MashapeRequestTest.swift */; };
+		9485C44C1D344290005B5EC5 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9485C44B1D344290005B5EC5 /* MeViewController.swift */; };
 		94A6F31F1D244F6300E02185 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A6F31E1D244F6300E02185 /* NetworkController.swift */; };
 		94A6F3211D244FBC00E02185 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A6F3201D244FBC00E02185 /* Request.swift */; };
 		94A6F3231D24525D00E02185 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A6F3221D24525D00E02185 /* APIKeys.swift */; };
@@ -51,7 +51,6 @@
 		281D428840784F997AF18D15 /* Pods_Remainder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Remainder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		944551C51D242DFF001B31DB /* Remainder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Remainder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		944551C81D242DFF001B31DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		944551CA1D242DFF001B31DB /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		944551CC1D242DFF001B31DB /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		944551CF1D242DFF001B31DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		944551D11D242DFF001B31DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -62,6 +61,7 @@
 		944551E61D242E00001B31DB /* RemainderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RemainderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		944551EA1D242E00001B31DB /* RemainderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemainderUITests.swift; sourceTree = "<group>"; };
 		944551EC1D242E00001B31DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9485C44B1D344290005B5EC5 /* MeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		94A6F31E1D244F6300E02185 /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		94A6F3201D244FBC00E02185 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		94A6F3221D24525D00E02185 /* APIKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
@@ -151,7 +151,7 @@
 			children = (
 				94A6F3221D24525D00E02185 /* APIKeys.swift */,
 				944551C81D242DFF001B31DB /* AppDelegate.swift */,
-				944551CA1D242DFF001B31DB /* FirstViewController.swift */,
+				9485C44B1D344290005B5EC5 /* MeViewController.swift */,
 				94A6F3301D27242000E02185 /* LifeStatistic.swift */,
 				94A6F3321D2725E200E02185 /* LifeRemain.swift */,
 				94A6F3341D27280800E02185 /* LifeRemainParser.swift */,
@@ -402,6 +402,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9485C44C1D344290005B5EC5 /* MeViewController.swift in Sources */,
 				94A6F3231D24525D00E02185 /* APIKeys.swift in Sources */,
 				94A6F3371D272A7200E02185 /* LifeStatisticParser.swift in Sources */,
 				94A6F31F1D244F6300E02185 /* NetworkController.swift in Sources */,
@@ -415,7 +416,6 @@
 				94A6F3331D2725E300E02185 /* LifeRemain.swift in Sources */,
 				94A6F3351D27280800E02185 /* LifeRemainParser.swift in Sources */,
 				944551C91D242DFF001B31DB /* AppDelegate.swift in Sources */,
-				944551CB1D242DFF001B31DB /* FirstViewController.swift in Sources */,
 				94A6F32F1D27201D00E02185 /* ModelObjectUpdater.swift in Sources */,
 				94A6F3291D2476E600E02185 /* Date+Convenience.swift in Sources */,
 			);

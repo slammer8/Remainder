@@ -1,28 +1,35 @@
 //
-//  FirstViewController.swift
+//  MeViewController.swift
 //  Remainder
 //
-//  Created by Sam Wu on 6/29/16.
+//  Created by Sam Wu on 7/11/16.
 //  Copyright © 2016 BothPoints. All rights reserved.
 //
 
 import UIKit
 
-class FirstViewController: UIViewController {
+final class MeViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         performRequest()
         
     }
 
+    // MARK: - Table view data source
+
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 0
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return 0
+    }
+
     private func performRequest() {
-        let calendar = Calendar.current()
-        
+        let calendar = Calendar.current
         var components = DateComponents()
         components.year = 1983
         components.month = 9
@@ -38,11 +45,12 @@ class FirstViewController: UIViewController {
             
             switch result {
             case let .success(lifeStatistic):
-                print(lifeStatistic.currentAge)
+                print("AAA \(lifeStatistic.currentAge)")
             case .failure:
-                print("failure")
+                print("AAA failure")
             }
             
         }
     }
+
 }

@@ -11,7 +11,7 @@ import SwiftyJSON
 
 final class ModelObjectUpdater<T:Parseable> {
     
-    func performRequest(request: Request, completion: (Result<T>) -> Void) {
+    func performRequest(request: Request, completion: (Result<T.ParserType.ParsedObject>) -> Void) {
         
         NetworkController.performRequest(request: request) { (URLRequest, response, data, error) in
             
@@ -23,6 +23,7 @@ final class ModelObjectUpdater<T:Parseable> {
                 
                 let error = NSError(domain: "Parsing error", code: -1, userInfo: nil)
                 completion(Result.failure(error: error))
+                return
             }
             
             completion(Result.success(result: object))

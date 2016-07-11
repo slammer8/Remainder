@@ -9,9 +9,10 @@
 import Foundation
 
 protocol Parseable {
-    associatedtype ParserType = Parser
+    associatedtype ParserType: Parser
 }
 
 protocol Parser {
-    static func parse(data: Data?, request: Request?) -> AnyObject?
+    associatedtype ParsedObject = Parseable
+    static func parse(data: Data?, request: Request?) -> ParsedObject?
 }
