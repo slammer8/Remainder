@@ -5,7 +5,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (from `https://github.com/Alamofire/Alamofire.git`, branch `swift3`)
-  - Eureka (from `https://github.com/slammer8/Eureka.git`, branch `Swift3`)
+  - Eureka (from `https://github.com/xmartlabs/Eureka.git`, branch `Swift3`)
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`, branch `swift3`)
 
 EXTERNAL SOURCES:
@@ -14,18 +14,18 @@ EXTERNAL SOURCES:
     :git: https://github.com/Alamofire/Alamofire.git
   Eureka:
     :branch: Swift3
-    :git: https://github.com/slammer8/Eureka.git
+    :git: https://github.com/xmartlabs/Eureka.git
   SwiftyJSON:
     :branch: swift3
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 CHECKOUT OPTIONS:
   Alamofire:
-    :commit: e891699312a5215ad0da9f8322c5da949f90db35
+    :commit: fcb4829a78d28e3491c6767cfb74e774871943b0
     :git: https://github.com/Alamofire/Alamofire.git
   Eureka:
-    :commit: b7fa56e69e67b20b711c2edeaf86b445b2cb8737
-    :git: https://github.com/slammer8/Eureka.git
+    :commit: 6a54d1d05e353134d6ce0b834c0383f709f45de8
+    :git: https://github.com/xmartlabs/Eureka.git
   SwiftyJSON:
     :commit: 1a9755949a652967dc2986cd7f4653496e556715
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
@@ -35,6 +35,6 @@ SPEC CHECKSUMS:
   Eureka: 2020d9faeef7b7e9adeb9e3d8af779e5931c1897
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-PODFILE CHECKSUM: 11ce36301f2943479aaa51907e2d7e9c32d7d624
+PODFILE CHECKSUM: e2e50ec7367d9a42f26301576c4d2f69e0403764
 
 COCOAPODS: 1.0.1
