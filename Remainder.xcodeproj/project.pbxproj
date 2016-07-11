@@ -14,6 +14,7 @@
 		944551D21D242DFF001B31DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 944551D11D242DFF001B31DB /* Assets.xcassets */; };
 		944551D51D242DFF001B31DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 944551D31D242DFF001B31DB /* LaunchScreen.storyboard */; };
 		944551EB1D242E00001B31DB /* RemainderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944551EA1D242E00001B31DB /* RemainderUITests.swift */; };
+		9485C44A1D344170005B5EC5 /* MashapeRequestTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944551DF1D242E00001B31DB /* MashapeRequestTest.swift */; };
 		94A6F31F1D244F6300E02185 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A6F31E1D244F6300E02185 /* NetworkController.swift */; };
 		94A6F3211D244FBC00E02185 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A6F3201D244FBC00E02185 /* Request.swift */; };
 		94A6F3231D24525D00E02185 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A6F3221D24525D00E02185 /* APIKeys.swift */; };
@@ -27,7 +28,6 @@
 		94A6F3371D272A7200E02185 /* LifeStatisticParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A6F3361D272A7200E02185 /* LifeStatisticParser.swift */; };
 		94A6F3391D28649C00E02185 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A6F3381D28649C00E02185 /* Result.swift */; };
 		94A6F33B1D286E0E00E02185 /* Parseable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A6F33A1D286E0D00E02185 /* Parseable.swift */; };
-		94A924531D343E6F00C45754 /* RemainderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A924521D343E6F00C45754 /* RemainderTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,7 +77,6 @@
 		94A6F33A1D286E0D00E02185 /* Parseable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parseable.swift; sourceTree = "<group>"; };
 		94A6F33D1D295D9C00E02185 /* life_left_json_response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = life_left_json_response.json; sourceTree = "<group>"; };
 		94A924501D343E6F00C45754 /* RemainderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RemainderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		94A924521D343E6F00C45754 /* RemainderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemainderTests.swift; sourceTree = "<group>"; };
 		94A924541D343E6F00C45754 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B8F02CCCB793B036F56F7A5C /* Pods-Remainder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Remainder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Remainder/Pods-Remainder.debug.xcconfig"; sourceTree = "<group>"; };
 		DF7FE99BEC04240B571003E5 /* Pods-Remainder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Remainder.release.xcconfig"; path = "Pods/Target Support Files/Pods-Remainder/Pods-Remainder.release.xcconfig"; sourceTree = "<group>"; };
@@ -129,7 +128,6 @@
 			isa = PBXGroup;
 			children = (
 				944551C71D242DFF001B31DB /* Remainder */,
-				944551DE1D242E00001B31DB /* RemainderTests */,
 				944551E91D242E00001B31DB /* RemainderUITests */,
 				94A924511D343E6F00C45754 /* RemainderTests */,
 				944551C61D242DFF001B31DB /* Products */,
@@ -170,16 +168,6 @@
 			path = Remainder;
 			sourceTree = "<group>";
 		};
-		944551DE1D242E00001B31DB /* RemainderTests */ = {
-			isa = PBXGroup;
-			children = (
-				944551DF1D242E00001B31DB /* MashapeRequestTest.swift */,
-				94A6F33D1D295D9C00E02185 /* life_left_json_response.json */,
-				944551E11D242E00001B31DB /* Info.plist */,
-			);
-			path = RemainderTests;
-			sourceTree = "<group>";
-		};
 		944551E91D242E00001B31DB /* RemainderUITests */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,7 +201,9 @@
 		94A924511D343E6F00C45754 /* RemainderTests */ = {
 			isa = PBXGroup;
 			children = (
-				94A924521D343E6F00C45754 /* RemainderTests.swift */,
+				944551DF1D242E00001B31DB /* MashapeRequestTest.swift */,
+				94A6F33D1D295D9C00E02185 /* life_left_json_response.json */,
+				944551E11D242E00001B31DB /* Info.plist */,
 				94A924541D343E6F00C45754 /* Info.plist */,
 			);
 			path = RemainderTests;
@@ -443,7 +433,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94A924531D343E6F00C45754 /* RemainderTests.swift in Sources */,
+				9485C44A1D344170005B5EC5 /* MashapeRequestTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -684,6 +674,7 @@
 				94A924591D343E6F00C45754 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

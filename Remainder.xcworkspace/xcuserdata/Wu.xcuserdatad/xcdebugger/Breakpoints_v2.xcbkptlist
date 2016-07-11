@@ -139,6 +139,38 @@
             endingLineNumber = "15"
             landmarkName = "parse(data:request:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static Remainder.LifeStatisticParser.parse (data : Swift.Optional&lt;Foundation.Data&gt;, request : Swift.Optional&lt;Remainder.Request&gt;) -&gt; Swift.Optional&lt;Remainder.LifeStatistic&gt;"
+                  moduleName = "Remainder"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Wu/Documents/Production_Projects/Remainder/Remainder/LifeStatisticParser.swift"
+                  timestampString = "489963936.304627"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static Remainder.LifeStatisticParser.parse (data : Swift.Optional&lt;Foundation.Data&gt;, request : Swift.Optional&lt;Remainder.Request&gt;) -&gt; Swift.Optional&lt;Remainder.LifeStatistic&gt;"
+                  moduleName = "Remainder"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Wu/Documents/Production_Projects/Remainder/Remainder/LifeStatisticParser.swift"
+                  timestampString = "489963936.308332"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "92">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
