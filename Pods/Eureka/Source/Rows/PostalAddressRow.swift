@@ -155,6 +155,17 @@ public class PostalAddressCell<T: PostalAddressType>: Cell<T>, CellType, PostalA
     
     public required init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationWillResignActive, object: nil, queue: nil){ [weak self] notification in
+            guard let me = self else { return }
+            me.titleLabel?.removeObserver(me, forKeyPath: "text")
+        }
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationDidBecomeActive, object: nil, queue: nil){ [weak self] notification in
+            self?.titleLabel?.addObserver(self!, forKeyPath: "text", options: NSKeyValueObservingOptions.old.union(.new), context: nil)
+        }
+        
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.UIContentSizeCategoryDidChange, object: nil, queue: nil){ [weak self] notification in
+            self?.setNeedsUpdateConstraints()
+        }
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -174,6 +185,9 @@ public class PostalAddressCell<T: PostalAddressType>: Cell<T>, CellType, PostalA
         countryTextField.removeTarget(self, action: nil, for: .allEvents)
         titleLabel?.removeObserver(self, forKeyPath: "text")
         imageView?.removeObserver(self, forKeyPath: "image")
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIApplicationWillResignActive, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIContentSizeCategoryDidChange, object: nil)
     }
     
     public override func setup() {
@@ -411,7 +425,7 @@ public class PostalAddressCell<T: PostalAddressType>: Cell<T>, CellType, PostalA
     
     
     public override func observeValue(forKeyPath keyPath: String?, of object: AnyObject?, change: [NSKeyValueChangeKey : AnyObject]?, context: UnsafeMutablePointer<Void>?) {
-        if let obj = object, let keyPathValue = keyPath, let changeType = change?[NSKeyValueChangeKey.kindKey] where ((obj === titleLabel && keyPathValue == "text") || (obj === imageView && keyPathValue == "image")) && changeType.uintValue == NSKeyValueChange.setting.rawValue {
+        if let obj = object, let keyPathValue = keyPath, let changeType = change?[NSKeyValueChangeKey.kindKey], ((obj === titleLabel && keyPathValue == "text") || (obj === imageView && keyPathValue == "image")) && changeType.uintValue == NSKeyValueChange.setting.rawValue {
             setNeedsUpdateConstraints()
             updateConstraintsIfNeeded()
         }
@@ -444,14 +458,14 @@ public class PostalAddressCell<T: PostalAddressType>: Cell<T>, CellType, PostalA
         dynamicConstraints += NSLayoutConstraint.constraints(withVisualFormat: "V:|-\(cellPadding)-[streetTextField(\(textFieldHeight))]-\(textFieldMargin)-[streetSeparatorView(\(separatorViewHeight))]-\(textFieldMargin)-[stateTextField(\(textFieldHeight))]-\(textFieldMargin)-[stateSeparatorView(\(separatorViewHeight))]-\(textFieldMargin)-[postalCodeTextField(\(textFieldHeight))]-\(textFieldMargin)-[postalCodeSeparatorView(\(separatorViewHeight))]-\(textFieldMargin)-[countryTextField]", options: [], metrics: nil, views: views)
         dynamicConstraints += NSLayoutConstraint.constraints(withVisualFormat: "V:|-\(cellPadding)-[streetTextField(\(textFieldHeight))]-\(textFieldMargin)-[streetSeparatorView(\(separatorViewHeight))]-\(textFieldMargin)-[stateTextField(\(textFieldHeight))]-\(textFieldMargin)-[stateSeparatorView(\(separatorViewHeight))]-\(textFieldMargin)-[cityTextField(\(textFieldHeight))]-\(textFieldMargin)-[citySeparatorView(\(separatorViewHeight))]-\(textFieldMargin)-[countryTextField]", options: [], metrics: nil, views: views)
         
-        if let label = titleLabel, let text = label.text where !text.isEmpty {
+        if let label = titleLabel, let text = label.text, !text.isEmpty {
             dynamicConstraints += NSLayoutConstraint.constraints(withVisualFormat: "V:|-\(cellPadding)-[titleLabel]-\(cellPadding)-|", options: [], metrics: nil, views: ["titleLabel": label])
             dynamicConstraints.append(NSLayoutConstraint(item: label, attribute: .centerY, relatedBy: .equal, toItem: self.contentView, attribute: .centerY, multiplier: 1, constant: 0))
         }
         
         if let imageView = imageView, let _ = imageView.image {
             views["imageView"] = imageView
-            if let titleLabel = titleLabel, text = titleLabel.text where !text.isEmpty {
+            if let titleLabel = titleLabel, let text = titleLabel.text, !text.isEmpty {
                 views["label"] = titleLabel
                 dynamicConstraints += NSLayoutConstraint.constraints(withVisualFormat: "H:|-[imageView]-[label]-[streetTextField]-|", options: [], metrics: nil, views: views)
                 dynamicConstraints += NSLayoutConstraint.constraints(withVisualFormat: "H:|-[imageView]-[label]-[stateTextField]-|", options: [], metrics: nil, views: views)
@@ -475,7 +489,7 @@ public class PostalAddressCell<T: PostalAddressType>: Cell<T>, CellType, PostalA
         }
         else{
             
-            if let titleLabel = titleLabel, let text = titleLabel.text where !text.isEmpty {
+            if let titleLabel = titleLabel, let text = titleLabel.text, !text.isEmpty {
                 views["label"] = titleLabel
                 dynamicConstraints += NSLayoutConstraint.constraints(withVisualFormat: "H:|-[label]-[streetTextField]-|", options: [], metrics: nil, views: views)
                 dynamicConstraints += NSLayoutConstraint.constraints(withVisualFormat: "H:|-[label]-[stateTextField]-|", options: [], metrics: nil, views: views)
@@ -563,7 +577,7 @@ public class PostalAddressCell<T: PostalAddressType>: Cell<T>, CellType, PostalA
                 break
             }
             
-            if let formatter = valueFormatter where useFormatterDuringInput{
+            if let formatter = valueFormatter, useFormatterDuringInput{
                 let value: AutoreleasingUnsafeMutablePointer<AnyObject?> = AutoreleasingUnsafeMutablePointer<AnyObject?>.init(UnsafeMutablePointer<T>(allocatingCapacity: 1))
                 let errorDesc: AutoreleasingUnsafeMutablePointer<NSString?>? = nil
                 if formatter.getObjectValue(value, for: textValue, errorDescription: errorDesc) {

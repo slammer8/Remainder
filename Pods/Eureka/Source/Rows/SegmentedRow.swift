@@ -27,6 +27,17 @@ public class SegmentedCell<T: Equatable> : Cell<T>, CellType {
     
     required public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationWillResignActive, object: nil, queue: nil){ [weak self] notification in
+            guard let me = self else { return }
+            me.titleLabel?.removeObserver(me, forKeyPath: "text")
+        }
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationDidBecomeActive, object: nil, queue: nil){ [weak self] notification in
+            self?.titleLabel?.addObserver(self!, forKeyPath: "text", options: NSKeyValueObservingOptions.old.union(.new), context: nil)
+        }
+        
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.UIContentSizeCategoryDidChange, object: nil, queue: nil){ [weak self] notification in
+            self?.setNeedsUpdateConstraints()
+        }
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -37,6 +48,9 @@ public class SegmentedCell<T: Equatable> : Cell<T>, CellType {
         segmentedControl.removeTarget(self, action: nil, for: .allEvents)
         titleLabel?.removeObserver(self, forKeyPath: "text")
         imageView?.removeObserver(self, forKeyPath: "image")
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIApplicationWillResignActive, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIContentSizeCategoryDidChange, object: nil)
     }
     
     public override func setup() {
@@ -65,7 +79,7 @@ public class SegmentedCell<T: Equatable> : Cell<T>, CellType {
     }
     
     public override func observeValue(forKeyPath keyPath: String?, of object: AnyObject?, change: [NSKeyValueChangeKey : AnyObject]?, context: UnsafeMutablePointer<Void>?) {
-        if let obj = object, let changeType = change, let _ = keyPath where ((obj === titleLabel && keyPath == "text") || (obj === imageView && keyPath == "image")) && changeType[NSKeyValueChangeKey.kindKey]?.uintValue == NSKeyValueChange.setting.rawValue{
+        if let obj = object, let changeType = change, let _ = keyPath, ((obj === titleLabel && keyPath == "text") || (obj === imageView && keyPath == "image")) && changeType[NSKeyValueChangeKey.kindKey]?.uintValue == NSKeyValueChange.setting.rawValue{
             setNeedsUpdateConstraints()
             updateConstraintsIfNeeded()
         }
@@ -89,7 +103,7 @@ public class SegmentedCell<T: Equatable> : Cell<T>, CellType {
             hasImageView = true
         }
         
-        if let titleLabel = titleLabel, text = titleLabel.text where !text.isEmpty {
+        if let titleLabel = titleLabel, let text = titleLabel.text, !text.isEmpty {
             views["titleLabel"] = titleLabel
             hasTitleLabel = true
             dynamicConstraints.append(NSLayoutConstraint(item: titleLabel, attribute: .centerY, relatedBy: .equal, toItem: contentView, attribute: .centerY, multiplier: 1, constant: 0))
