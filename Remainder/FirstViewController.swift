@@ -1,36 +1,30 @@
 //
-//  MeViewController.swift
+//  FirstViewController.swift
 //  Remainder
 //
-//  Created by Sam Wu on 7/11/16.
+//  Created by Sam Wu on 6/29/16.
 //  Copyright © 2016 BothPoints. All rights reserved.
 //
 
 import UIKit
-import Eureka
 
-final class MeViewController: FormViewController {
+class FirstViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         performRequest()
-        
-    }
 
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
     }
 
     private func performRequest() {
-        let calendar = Calendar.current
+        let calendar = Calendar.current       
         var components = DateComponents()
         components.year = 1983
         components.month = 9
@@ -46,12 +40,11 @@ final class MeViewController: FormViewController {
             
             switch result {
             case let .success(lifeStatistic):
-                print("AAA \(lifeStatistic.currentAge)")
+                print(lifeStatistic.currentAge)
             case .failure:
-                print("AAA failure")
+                print("failure")
             }
             
         }
     }
-
 }
